@@ -1,4 +1,4 @@
-use rustify_derive::Endpoint;
+use rustified_derive::Endpoint;
 use typed_builder::TypedBuilder;
 
 use crate::{Bangumi, Current, SearchResult, Tag, TagType, Torrent, Torrents, WithId};
@@ -198,10 +198,10 @@ macro_rules! api_test {
             #[cfg(test)]
             #[tokio::test]
             async fn [< test_ $func >]() {
-                use rustify::Endpoint;
+                use rustified::Endpoint;
                 use tap::TapFallible;
 
-                let client = rustify::Client::default(crate::DEFAULT_DOMAIN);
+                let client = rustified::Client::default(crate::DEFAULT_DOMAIN);
                 let req = $req;
                 let $ret = req.exec(&client).await
                     .tap_err(|e| eprintln!("{e}"))
